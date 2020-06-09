@@ -14,7 +14,7 @@ public class VRInput : MonoBehaviour
             if (raycast.GetIsHit())
             {
                 GameObject hitObj = raycast.GetHitObject();
-                Destroy(raycast.GetHitObject());
+                //Destroy(raycast.GetHitObject());
             }
         }
     }
