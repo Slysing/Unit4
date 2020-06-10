@@ -30,7 +30,7 @@ public class MeteorSpawn : MonoBehaviour
 
             if( spawn == 1)
             {
-                Instantiate(Meteor, transform.position, transform.rotation);
+                //Instantiate(Meteor, spawn1);
             }
 
             if (spawn == 2)

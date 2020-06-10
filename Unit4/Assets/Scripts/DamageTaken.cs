@@ -5,26 +5,14 @@ using UnityEngine;
 public class DamageTaken : MonoBehaviour
 {
 
-    public GameObject meteor;
-
-
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
-
-
-    }
-
-    void OnCollisionEnter(Collision col)
-    {
-
-        if (col.gameObject.tag == "Meteor")
+        if (other.gameObject.CompareTag("Meteor"))
         {
-            Destroy(col.gameObject);
-            Debug.Log("destroy");
+            Destroy(other.gameObject);
+            //Debug.Log("boom");
             //score count code getcomponent<>
         }
-
     }
 
 }
