@@ -5,17 +5,14 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-    //public GameObject[] asteroids;  //pool of asteroids
     public Collider spawnerBoundingBox;
     public GameObject asteroidPrefab;
-    public float asteroid_rateOfSpawn = 2f;
-    private float nextSpawn = 1f;
-    //public GameObject player;
-    public float asteroidMoveForce = 300000f;
+    public float asteroid_rateOfSpawn = 1;
+    //public bool lives0 = false;
+    private float nextSpawn = 1;
 
     void Start()
     {
-        //player = GameObject.Find("Player");
         nextSpawn = 1f;
     }
         
