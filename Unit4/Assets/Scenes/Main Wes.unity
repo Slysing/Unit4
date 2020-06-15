@@ -4678,6 +4678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9c71d28e72f8614590c2426aeb0af3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion_Meteor: {fileID: 4854017690634898004, guid: 1e3a45a6d2ab3954a995a2aa45c596c7,
+    type: 3}
 --- !u!124 &2830075880027041701
 Behaviour:
   m_ObjectHideFlags: 0

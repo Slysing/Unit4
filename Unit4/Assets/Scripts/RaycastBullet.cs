@@ -5,32 +5,38 @@ using UnityEngine;
 public class RaycastBullet : MonoBehaviour
 {
 
-    // Update is called once per frame
+    public GameObject explosion_Meteor;
+
+
     void Update()
     {
 
-        int layerMask = 1 << 8;
-        layerMask = ~layerMask;
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        if (Input.GetButtonDown("Fire1"))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            //Debug.Log("Did Hit");
-            if (Input.GetButtonDown("Fire1") && gameObject.CompareTag("Meteor"))
+            //Debug.Log("Player fired.");
+
+            // debug ray
+            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+
+            int layerMask = 1 << 9;
+            layerMask = ~layerMask;
+
+            RaycastHit hit;
+            
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
             {
-                Destroy(gameObject);
-                Debug.Log("destroyed");
+                if (hit.collider.gameObject.tag == "Meteor")
+                {
+                    Debug.Log("Player shot a meteor!");
+                    // spawn explosion particle system
+                    Instantiate(explosion_Meteor, hit.transform.position, Quaternion.identity);
+                    // destroy meteor
+                    Destroy(hit.collider.gameObject);
+                }
             }
-
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            //Debug.Log("Did not Hit");
         }
 
 
+        
     }
 }
