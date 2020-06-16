@@ -7,34 +7,59 @@ public class GameController : MonoBehaviour
 
     public Collider spawnerBoundingBox;
     public GameObject asteroidPrefab;
-    public float asteroid_rateOfSpawn = 1;
+    public float asteroid_rateOfSpawn_startRate = 2f;
+    public float asteroid_rateOfSpawn_speedUpQuotient = 30f;
+    public float asteroid_rateOfSpawn_fastestRate = 0.3f;
+    private float asteroid_rateOfSpawn;
     //public bool lives0 = false;
-    private float nextSpawn = 1;
+    private float nextSpawn = 1f;
 
     void Start()
     {
-        nextSpawn = 1f;
+        // allow a bit of time before asteroids start spawning at all
+        nextSpawn = 2f;
+
+        // set initial spawn rate of meteors
+        asteroid_rateOfSpawn = asteroid_rateOfSpawn_startRate;
     }
-        
+
+
+
     void Update()
     {
         SpawnAsteroids();
     }
+
+
+
 
     void SpawnAsteroids()
     {
         // spawn asteroid every time the timer clocks over
         if (Time.time > nextSpawn)
         {
-            nextSpawn = Time.time + asteroid_rateOfSpawn;
+            // spawn a meteor
             Vector3 spawnPoint = RandomPointInBounds(spawnerBoundingBox.bounds);
             GameObject asteroid = Instantiate(asteroidPrefab, spawnPoint, Quaternion.identity) as GameObject;
-            // get reference to Astroid, and set it up to head roughly towards the ship
-            //asteroid.transform.LookAt(player.transform);
-            //asteroid.GetComponent<Rigidbody>().AddForce(0f, 0f, -asteroidMoveForce);
 
+            // set next spawn time 
+            nextSpawn = Time.time + asteroid_rateOfSpawn;
+
+            // reduce spawn time (so the rate of meteors increases as you play)
+            asteroid_rateOfSpawn -= asteroid_rateOfSpawn / asteroid_rateOfSpawn_speedUpQuotient;
+
+            // set cap for fastest spawn time (so it doesn't spawn them too fast)
+            if (asteroid_rateOfSpawn < asteroid_rateOfSpawn_fastestRate)
+            {
+                asteroid_rateOfSpawn = asteroid_rateOfSpawn_fastestRate;
+            }
         }
     }
+
+
+
+
+
 
 
     public Vector3 RandomPointInBounds(Bounds bounds)
@@ -46,5 +71,6 @@ public class GameController : MonoBehaviour
             Random.Range(bounds.min.z, bounds.max.z)
             );
     }
+
 
 }
