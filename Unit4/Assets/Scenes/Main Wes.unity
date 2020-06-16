@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 81f714daf7144784b8a2f42f1cd30927, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1792,6 +1792,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d225d9350acb64a4dbc49e2e17845d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lives: 5
+  lives0: 0
+  Life1: {fileID: 0}
+  Life2: {fileID: 0}
+  Life3: {fileID: 0}
+  Life4: {fileID: 0}
+  Life5: {fileID: 0}
 --- !u!65 &887012055
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2037,6 +2044,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d225d9350acb64a4dbc49e2e17845d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lives: 5
+  lives0: 0
+  Life1: {fileID: 0}
+  Life2: {fileID: 0}
+  Life3: {fileID: 0}
+  Life4: {fileID: 0}
+  Life5: {fileID: 0}
 --- !u!65 &1076894192
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2154,6 +2168,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d225d9350acb64a4dbc49e2e17845d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lives: 5
+  lives0: 0
+  Life1: {fileID: 0}
+  Life2: {fileID: 0}
+  Life3: {fileID: 0}
+  Life4: {fileID: 0}
+  Life5: {fileID: 0}
 --- !u!65 &1154583361
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3158,8 +3179,9 @@ MonoBehaviour:
   spawnerBoundingBox: {fileID: 1914232237}
   asteroidPrefab: {fileID: 2020050065923052459, guid: e09f2060734838e438a533e80edb1379,
     type: 3}
-  asteroid_rateOfSpawn: 0.5
-  asteroidMoveForce: 300000
+  asteroid_rateOfSpawn_startRate: 2
+  asteroid_rateOfSpawn_speedUpQuotient: 30
+  asteroid_rateOfSpawn_fastestRate: 0.3
 --- !u!65 &1914232237
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4721,7 +4743,7 @@ Camera:
   m_GameObject: {fileID: 2830075880027041697}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
