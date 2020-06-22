@@ -4830,6 +4830,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion_Meteor: {fileID: 4854017690634898004, guid: 1e3a45a6d2ab3954a995a2aa45c596c7,
     type: 3}
+  sound_shoot: {fileID: 8300000, guid: b9d0b4fb00a09da44b3eb913cae50566, type: 3}
+  sound_explodeMeteor: {fileID: 8300000, guid: dfd464885ad2a8749820ba7b70777deb, type: 3}
 --- !u!82 &2830075880027041699
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4840,7 +4842,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cf2b22f69e74e2742ba8dfc0e28e030b, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
