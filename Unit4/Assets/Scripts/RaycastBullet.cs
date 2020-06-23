@@ -12,8 +12,7 @@ public class RaycastBullet : MonoBehaviour
     public AudioClip sound_shoot;
     public AudioClip sound_explodeMeteor;
     public LayerMask meteorsLayer;
-
-
+    
 
     void Update()
     {
@@ -25,7 +24,9 @@ public class RaycastBullet : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && gc.playerIsAlive)
         {
+            
             RaycastHit hit;
+            //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, meteorsLayer))
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, meteorsLayer))
             {
                 //Debug.Log(hit.collider.gameObject.tag);
