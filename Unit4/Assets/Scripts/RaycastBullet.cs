@@ -36,15 +36,15 @@ public class RaycastBullet : MonoBehaviour
                 {
                     //Debug.Log("Player shot a meteor!");
                     // spawn explosion particle system
-                    Instantiate(explosion_Meteor, hit.transform.position, Quaternion.identity);
+                    GameObject explosion = Instantiate(explosion_Meteor, hit.transform.position, Quaternion.identity) as GameObject;
+                    // set explosionType (1 = normal)
+                    explosion.GetComponent<Explosion>().explosionType = 1;
                     // destroy meteor
                     Destroy(hit.collider.gameObject);
-
-                    // play metero explode sound
-                    GetComponent<AudioSource>().PlayOneShot(sound_explodeMeteor, 0.9f);
                 }
             }
         }
+
 
     }
 }

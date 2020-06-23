@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Meteor : MonoBehaviour
 {
-
     public GameController gc;
     public GameObject myTarget;
     public float speed = 0.1f;
-
+    public GameObject explosion_Meteor;
 
     private void Start()
     {
@@ -30,6 +29,11 @@ public class Meteor : MonoBehaviour
         {
             // tell GameController that the ship has taken damage
             gc.ShipTakesDamage();
+            // spawn explosion particles
+            GameObject explosion = Instantiate(explosion_Meteor, transform.position, Quaternion.identity) as GameObject;
+            // set explosionType (2 = hit the ship)
+            explosion.GetComponent<Explosion>().explosionType = 2;
+
             // destroy self
             Destroy(this.gameObject);
 

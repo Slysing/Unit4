@@ -107,13 +107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763d90de88ca4574499d5978543ac21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target1: {fileID: 600450451685830981, guid: ceb4996dca723024f9cde5440c850437, type: 3}
-  target2: {fileID: 6015038831096567055, guid: 9355029ca943def4496b6fd3c59f212e, type: 3}
-  target3: {fileID: 925561703941677433, guid: d26e4b40c662a8547a18b1d6dd1439d2, type: 3}
+  gc: {fileID: 0}
+  myTarget: {fileID: 0}
   speed: 0.1
-  CheckOne: 0
-  CheckTwo: 0
-  CheckThree: 0
+  explosion_Meteor: {fileID: 4854017690634898004, guid: 1e3a45a6d2ab3954a995a2aa45c596c7,
+    type: 3}
 --- !u!54 &-3777387990393735018
 Rigidbody:
   m_ObjectHideFlags: 0

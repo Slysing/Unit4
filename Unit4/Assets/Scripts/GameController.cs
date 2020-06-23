@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameController : MonoBehaviour
     public GameObject[] asteroid_targets;
 
     [Header("Lives")]
+    public AudioClip audio_GameOver;
     public bool playerIsAlive = true;
     public int lives = 5;
     public GameObject Life1;
@@ -22,7 +24,10 @@ public class GameController : MonoBehaviour
     public GameObject Life3;
     public GameObject Life4;
     public GameObject Life5;
-    
+    public GameObject damageFX1;
+    public GameObject damageFX2;
+    public GameObject damageFX3;
+
 
     void Start()
     {
@@ -49,6 +54,7 @@ public class GameController : MonoBehaviour
         {
             if (lives == 4)
             {
+                damageFX1.SetActive(true);
                 Life5.SetActive(false);
             }
             if (lives == 3)
@@ -57,6 +63,7 @@ public class GameController : MonoBehaviour
             }
             if (lives == 2)
             {
+                damageFX2.SetActive(true);
                 Life3.SetActive(false);
             }
             if (lives == 1)
@@ -66,18 +73,25 @@ public class GameController : MonoBehaviour
             if (lives == 0)
             {
                 Life1.SetActive(false);
-                
-                // game over!
+                damageFX3.SetActive(true);
                 playerIsAlive = false;
+                GetComponent<AudioSource>().PlayOneShot(audio_GameOver);
+                Invoke("RestartGame", 10f);
             }
         }
     }
     
 
+    void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+
     void SpawnAsteroids()
     {
-        // spawn asteroid every time the timer clocks over
-        if (Time.time > nextSpawn)
+        // spawn asteroid every time the timer clocks over (only if player is alive)
+        if (Time.time > nextSpawn && playerIsAlive)
         {
             // spawn a meteor
             Vector3 spawnPoint = RandomPointInBounds(spawnerBoundingBox.bounds);
