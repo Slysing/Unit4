@@ -28741,8 +28741,8 @@ MonoBehaviour:
   asteroidsDestroyed: 0
   text_score: {fileID: 2007613669}
   spawnerBoundingBox: {fileID: 1914232237}
-  asteroidPrefab: {fileID: 2020050065923052459, guid: e09f2060734838e438a533e80edb1379,
-    type: 3}
+  asteroidPrefab:
+  - {fileID: 2020050065923052459, guid: e09f2060734838e438a533e80edb1379, type: 3}
   asteroid_rateOfSpawn_startRate: 1.4
   asteroid_rateOfSpawn_speedUpQuotient: 50
   asteroid_rateOfSpawn_fastestRate: 0.4

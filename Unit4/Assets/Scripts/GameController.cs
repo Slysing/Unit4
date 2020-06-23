@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
 
     [Header("Asteroids")]
     public Collider spawnerBoundingBox;
-    public GameObject asteroidPrefab;
+    public GameObject[] asteroidPrefab;
     public float asteroid_rateOfSpawn_startRate = 2f;
     public float asteroid_rateOfSpawn_speedUpQuotient = 30f;
     public float asteroid_rateOfSpawn_fastestRate = 0.3f;
@@ -107,7 +107,7 @@ public class GameController : MonoBehaviour
         {
             // spawn a meteor
             Vector3 spawnPoint = RandomPointInBounds(spawnerBoundingBox.bounds);
-            GameObject asteroid = Instantiate(asteroidPrefab, spawnPoint, Quaternion.identity) as GameObject;
+            GameObject asteroid = Instantiate(asteroidPrefab[Random.Range(0, asteroidPrefab.Length)], spawnPoint, Quaternion.identity) as GameObject;
             asteroid.layer = LayerMask.NameToLayer("Meteors");
 
             // set next spawn time 
