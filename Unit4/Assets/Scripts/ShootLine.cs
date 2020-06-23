@@ -5,8 +5,9 @@ using UnityEngine;
 public class ShootLine : MonoBehaviour
 {
     public LineRenderer lineRenderer;
-    public float visibileDuration = 0.4f;
-    
+    public float visibileDuration = 0.1f;
+    public float startWidth = 0.3f;
+    public float endWidth = 0.7f;
 
     void Start()
     {
@@ -18,8 +19,8 @@ public class ShootLine : MonoBehaviour
     public void SetupLinePoints(Vector3 start, Vector3 end)
     {
         //Debug.Log("Shoot line just set itself up.");
-        lineRenderer.startWidth = 0.1f;
-        lineRenderer.endWidth = 0.1f;
+        lineRenderer.startWidth = startWidth;
+        lineRenderer.endWidth = endWidth;
         lineRenderer.positionCount = 2;
         lineRenderer.useWorldSpace = true;
 

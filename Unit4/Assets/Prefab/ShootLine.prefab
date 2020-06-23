@@ -150,3 +150,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 2571810466765199995}
   visibileDuration: 0.1
+  startWidth: 0.5
+  endWidth: 0.1

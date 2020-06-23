@@ -18,6 +18,7 @@ public class Meteor : MonoBehaviour
         myTarget = gc.asteroid_targets[Random.Range(0, gc.asteroid_targets.Length)];
         // randomise my speed
         speed = Random.Range(speed_Min, speed_Max);
+        GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(0, 60) - 30, Random.Range(0, 60) - 30, Random.Range(0, 60) - 30));
 
     }
 
@@ -49,7 +50,7 @@ public class Meteor : MonoBehaviour
         }
 
 
-        
+
     }
 
 

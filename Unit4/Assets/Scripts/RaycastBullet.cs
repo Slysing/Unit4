@@ -25,9 +25,6 @@ public class RaycastBullet : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && gc.playerIsAlive)
         {
-            // play shoot sound
-            GetComponent<AudioSource>().PlayOneShot(sound_shoot, 0.7f);
-
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, meteorsLayer))
             {
@@ -37,6 +34,8 @@ public class RaycastBullet : MonoBehaviour
                 if (hit.collider.gameObject.tag == "Meteor")
                 {
                     //Debug.Log("Player shot a meteor!");
+                    // play shoot sound
+                    GetComponent<AudioSource>().PlayOneShot(sound_shoot, 0.7f);
                     // store hit position (for lazer drawing)
                     targetHitPosition = hit.point;
                     // spawn explosion particle system
@@ -51,6 +50,8 @@ public class RaycastBullet : MonoBehaviour
 
                 else if (hit.collider.gameObject.tag == "Space")
                 {
+                    // play shoot sound
+                    GetComponent<AudioSource>().PlayOneShot(sound_shoot, 0.7f);
                     // store hit position (for lazer drawing)
                     targetHitPosition = hit.point;
                     //Debug.Log("Player shot into empty space!");
