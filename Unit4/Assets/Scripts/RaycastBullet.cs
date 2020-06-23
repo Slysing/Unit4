@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RaycastBullet : MonoBehaviour
 {
+    public GameController gc;
     public GameObject explosion_Meteor;
     public AudioClip sound_shoot;
     public AudioClip sound_explodeMeteor;
@@ -39,7 +40,9 @@ public class RaycastBullet : MonoBehaviour
                     GameObject explosion = Instantiate(explosion_Meteor, hit.transform.position, Quaternion.identity) as GameObject;
                     // set explosionType (1 = normal)
                     explosion.GetComponent<Explosion>().explosionType = 1;
-                    // destroy meteor
+                    // increment score in GameController
+                    gc.UpdateScore();
+                    // destroy meteor (must happen last)
                     Destroy(hit.collider.gameObject);
                 }
             }

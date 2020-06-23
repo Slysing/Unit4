@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    [Header("Score")]
+    public int asteroidsDestroyed;
+    public Text text_score;
+
     [Header("Asteroids")]
     public Collider spawnerBoundingBox;
     public GameObject asteroidPrefab;
@@ -38,13 +43,20 @@ public class GameController : MonoBehaviour
         asteroid_rateOfSpawn = asteroid_rateOfSpawn_startRate;
     }
 
-    
+
     void Update()
     {
         SpawnAsteroids();
     }
 
-    
+
+    public void UpdateScore()
+    {
+        asteroidsDestroyed++;
+        text_score.text = asteroidsDestroyed.ToString();
+    }
+
+
     public void ShipTakesDamage()
     {
         // reduce life points
@@ -80,7 +92,7 @@ public class GameController : MonoBehaviour
             }
         }
     }
-    
+
 
     void RestartGame()
     {
@@ -112,7 +124,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    
+
     public Vector3 RandomPointInBounds(Bounds bounds)
     {
         // gives a random point within the spawner bounding box
