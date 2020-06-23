@@ -4,34 +4,75 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-
+    [Header("Asteroids")]
     public Collider spawnerBoundingBox;
     public GameObject asteroidPrefab;
     public float asteroid_rateOfSpawn_startRate = 2f;
     public float asteroid_rateOfSpawn_speedUpQuotient = 30f;
     public float asteroid_rateOfSpawn_fastestRate = 0.3f;
     private float asteroid_rateOfSpawn;
-    //public bool lives0 = false;
     private float nextSpawn = 1f;
+    public GameObject[] asteroid_targets;
+
+    [Header("Lives")]
+    public bool playerIsAlive = true;
+    public int lives = 5;
+    public GameObject Life1;
+    public GameObject Life2;
+    public GameObject Life3;
+    public GameObject Life4;
+    public GameObject Life5;
+    
 
     void Start()
     {
         // allow a bit of time before asteroids start spawning at all
-        nextSpawn = 2f;
+        nextSpawn = 1.2f;
 
         // set initial spawn rate of meteors
         asteroid_rateOfSpawn = asteroid_rateOfSpawn_startRate;
     }
 
-
-
+    
     void Update()
     {
         SpawnAsteroids();
     }
 
+    
+    public void ShipTakesDamage()
+    {
+        // reduce life points
+        lives -= 1;
 
-
+        if (true)
+        {
+            if (lives == 4)
+            {
+                Life5.SetActive(false);
+            }
+            if (lives == 3)
+            {
+                Life4.SetActive(false);
+            }
+            if (lives == 2)
+            {
+                Life3.SetActive(false);
+            }
+            if (lives == 1)
+            {
+                Life2.SetActive(false);
+            }
+            if (lives == 0)
+            {
+                Life1.SetActive(false);
+                
+                // game over!
+                playerIsAlive = false;
+            }
+        }
+    }
+    
 
     void SpawnAsteroids()
     {
@@ -41,6 +82,7 @@ public class GameController : MonoBehaviour
             // spawn a meteor
             Vector3 spawnPoint = RandomPointInBounds(spawnerBoundingBox.bounds);
             GameObject asteroid = Instantiate(asteroidPrefab, spawnPoint, Quaternion.identity) as GameObject;
+            asteroid.layer = LayerMask.NameToLayer("Meteors");
 
             // set next spawn time 
             nextSpawn = Time.time + asteroid_rateOfSpawn;
@@ -56,12 +98,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-
-
-
-
-
-
+    
     public Vector3 RandomPointInBounds(Bounds bounds)
     {
         // gives a random point within the spawner bounding box
@@ -71,6 +108,5 @@ public class GameController : MonoBehaviour
             Random.Range(bounds.min.z, bounds.max.z)
             );
     }
-
 
 }

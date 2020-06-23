@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class RaycastBullet : MonoBehaviour
 {
-
     public GameObject explosion_Meteor;
-
     public AudioClip sound_shoot;
     public AudioClip sound_explodeMeteor;
+    public LayerMask meteorsLayer;
+
+
+    private void Start()
+    {
+        //meteorsLayer = LayerMask.NameToLayer("Meteors");
+    }
 
 
     void Update()
     {
-
         if (Input.GetButtonDown("Fire1"))
         {
             // play shoot sound
@@ -23,17 +27,14 @@ public class RaycastBullet : MonoBehaviour
             // debug ray
             //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
 
-            int layerMask = 1 << 9;
-            layerMask = ~layerMask;
-
             RaycastHit hit;
-            
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, meteorsLayer))
             {
-                
+                //Debug.Log(hit.collider.gameObject.tag);
                 if (hit.collider.gameObject.tag == "Meteor")
                 {
-                    Debug.Log("Player shot a meteor!");
+                    //Debug.Log("Player shot a meteor!");
                     // spawn explosion particle system
                     Instantiate(explosion_Meteor, hit.transform.position, Quaternion.identity);
                     // destroy meteor
@@ -45,6 +46,5 @@ public class RaycastBullet : MonoBehaviour
             }
         }
 
-        
     }
 }
