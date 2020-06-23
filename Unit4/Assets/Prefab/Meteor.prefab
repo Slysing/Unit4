@@ -109,7 +109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gc: {fileID: 0}
   myTarget: {fileID: 0}
-  speed: 0.1
+  speed_Min: 0.05
+  speed_Max: 0.08
   explosion_Meteor: {fileID: 4854017690634898004, guid: 1e3a45a6d2ab3954a995a2aa45c596c7,
     type: 3}
 --- !u!54 &-3777387990393735018
