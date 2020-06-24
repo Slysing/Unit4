@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2325163490462750270}
+  - component: {fileID: 6867371003793148777}
   - component: {fileID: 2571810466765199995}
-  - component: {fileID: -7130319686929047224}
   m_Layer: 0
-  m_Name: ShootLine
+  m_Name: ShootLineAimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,6 +32,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6867371003793148777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8158535156211711159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c2a38fbdfd75146920007edb93ae72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 2571810466765199995}
+  visibileDuration: 0.1
+  startWidth: 0.3
+  endWidth: 0.1
 --- !u!120 &2571810466765199995
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -50,7 +66,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8789d40dff339be43a9b303c427d27fc, type: 2}
+  - {fileID: 2100000, guid: 270e53dd56b7f9944a4de49bf44d5a2c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,19 +152,3 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &-7130319686929047224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8158535156211711159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e402225e877816b48b1febee4726ed3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 2571810466765199995}
-  visibileDuration: 0.1
-  startWidth: 0.8
-  endWidth: 0.3

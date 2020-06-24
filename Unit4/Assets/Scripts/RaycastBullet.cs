@@ -9,10 +9,11 @@ public class RaycastBullet : MonoBehaviour
     public Vector3 targetHitPosition;
     public GameObject explosion_Meteor;
     public GameObject shootLine;
+    public GameObject shootLineAimer;
     public AudioClip sound_shoot;
     public AudioClip sound_explodeMeteor;
     public LayerMask meteorsLayer;
-    
+
 
     void Update()
     {
@@ -24,9 +25,8 @@ public class RaycastBullet : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && gc.playerIsAlive)
         {
-            
+
             RaycastHit hit;
-            //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, meteorsLayer))
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, meteorsLayer))
             {
                 //Debug.Log(hit.collider.gameObject.tag);
@@ -58,18 +58,22 @@ public class RaycastBullet : MonoBehaviour
                     //Debug.Log("Player shot into empty space!");
                 }
 
-
             }
-
-            // spawn ShootLine for bullet effect  (and pass in values for start and end point for this bullet line)
-            GameObject shootLineObject = Instantiate(shootLine, gun.transform.position, Quaternion.identity) as GameObject;
-            shootLineObject.GetComponent<ShootLine>().SetupLinePoints(gun.transform.position, hit.point);
-
+            // render updated shootline
+            shootLine.GetComponent<ShootLine>().SetupLinePoints(gun.transform.position, hit.point);
 
         }
+        else // player didn't shoot, so update aiming line
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, meteorsLayer))
+            {
+                // render updated shootline aimer
+                shootLineAimer.GetComponent<ShootLineAimer>().UpdateLinePoints(gun.transform.position, hit.point);
+            }
+        }
     }
-
-
+    
 
 
 }
