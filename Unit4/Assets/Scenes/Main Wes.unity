@@ -29158,7 +29158,16 @@ MonoBehaviour:
   text_score: {fileID: 2007613669}
   spawnerBoundingBox: {fileID: 1914232237}
   asteroidPrefab:
-  - {fileID: 2020050065923052459, guid: e09f2060734838e438a533e80edb1379, type: 3}
+  - {fileID: 2020050065923052459, guid: d94e484793ee24b48960fcea9da8e70c, type: 3}
+  - {fileID: 2020050065923052459, guid: b3bfa2cdc6dc94c419e67af672adfef8, type: 3}
+  - {fileID: 2020050065923052459, guid: 58124e60191ebd94c8e6e5dd1a2a8498, type: 3}
+  - {fileID: 2020050065923052459, guid: 252af5976e5dd7240a917b780073f6a2, type: 3}
+  - {fileID: 2020050065923052459, guid: 478a6bcaaffe9214cb34987f3488dc42, type: 3}
+  - {fileID: 2020050065923052459, guid: 015e1c1daf70f4744a07286291bcd7b9, type: 3}
+  - {fileID: 2020050065923052459, guid: d34b77d81ad007744976688745e97dc4, type: 3}
+  - {fileID: 2020050065923052459, guid: ff44465098e4f664999dae6b00589dc2, type: 3}
+  - {fileID: 2020050065923052459, guid: 0284afb70622c7c4b9074fc51ce7f327, type: 3}
+  - {fileID: 2020050065923052459, guid: 7d3bb68de2118a2428eb4f41edfae2bd, type: 3}
   asteroid_rateOfSpawn_startRate: 1.4
   asteroid_rateOfSpawn_speedUpQuotient: 50
   asteroid_rateOfSpawn_fastestRate: 0.4
